@@ -8,7 +8,7 @@ const inquirer = require("inquirer");
 
 // Define the directory paths
 const boilerplateDir = path.join(__dirname, "..");
-const templateDir = path.join(boilerplateDir, "templates", "basic");
+const templateDir = path.join(boilerplateDir, "templates");
 
 // Main function to create the project
 async function main() {
