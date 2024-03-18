@@ -1,37 +1,45 @@
 #!/usr/bin/env node
 
 const { exec } = require("child_process");
-const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
 const fse = require("fs-extra");
+const ora = require("ora");
+const chalk = require("chalk"); // Import chalk for colored output
 
+// Define the directory paths
 const boilerplateDir = path.join(__dirname, "..");
 const templatesDir = path.join(boilerplateDir, "templates");
 
+// Main function to create the project
 async function main() {
   try {
     // Prompt user for project name and directory
     const { projectName, projectDirectory } = await promptProjectDetails();
 
-    // Prompt user to choose template
-    const selectedTemplate = await promptTemplateSelection();
+    // Display loading message
+    const loading = createLoading("Creating project...");
 
     // Copy template to new project directory
-    copyTemplate(selectedTemplate, projectDirectory);
+    copyTemplate(projectDirectory);
 
     // Install dependencies
     await installDependencies(projectDirectory);
 
+    loading.succeed(chalk.green("Project created successfully"));
     console.log(
       `Project '${projectName}' created successfully in ${projectDirectory}`
     );
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error(chalk.red("An error occurred:"));
+    console.error(chalk.red(error.message || error));
   }
 }
 
+// Function to prompt user for project details
 async function promptProjectDetails() {
+  console.log("\n🚀 Let's create a new Express.js project!");
+
   const questions = [
     {
       type: "input",
@@ -50,46 +58,40 @@ async function promptProjectDetails() {
   return inquirer.prompt(questions);
 }
 
-async function promptTemplateSelection() {
-  const templates = fs.readdirSync(templatesDir);
-  const questions = [
-    {
-      type: "list",
-      name: "template",
-      message: "Choose a template:",
-      choices: templates,
-    },
-  ];
-
-  const { template } = await inquirer.prompt(questions);
-  return template;
-}
-
-function copyTemplate(template, projectDirectory) {
-  const templatePath = path.join(templatesDir, template);
+// Function to copy template to new project directory
+function copyTemplate(projectDirectory) {
   const destinationPath = path.join(process.cwd(), projectDirectory);
-  fse.copySync(templatePath, destinationPath);
+  fse.copySync(templatesDir, destinationPath);
 }
 
+// Function to install project dependencies
 async function installDependencies(projectDirectory) {
   return new Promise((resolve, reject) => {
+    console.log("\nInstalling dependencies...");
     const child = exec(`cd ${projectDirectory} && npm install`);
     child.stdout.on("data", (data) => {
       console.log(data.toString());
     });
     child.stderr.on("data", (data) => {
-      console.error(data.toString());
+      console.error(chalk.yellow(data.toString())); // Display warnings in yellow
     });
     child.on("exit", (code) => {
       if (code === 0) {
         resolve();
       } else {
         reject(
-          new Error(`Failed to install dependencies with exit code ${code}`)
+          new Error(
+            chalk.red(`Failed to install dependencies with exit code ${code}`)
+          )
         );
       }
     });
   });
+}
+
+// Function to create a loading indicator
+function createLoading(message) {
+  return ora({ text: message, spinner: "dots" }).start();
 }
 
 main();
