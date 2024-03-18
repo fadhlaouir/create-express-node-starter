@@ -16,14 +16,15 @@ async function main() {
     // Display version
     displayVersion();
 
-    // Prompt user for project details
-    const { projectName, projectDirectory } = await promptProjectDetails();
+    // Prompt user for project details including template selection
+    const { projectName, projectDirectory, template } =
+      await promptProjectDetails();
 
     // Display loading message
     console.log("\nCreating project...");
 
-    // Copy template to new project directory
-    copyTemplate(templateDir, projectDirectory);
+    // Copy selected template to new project directory
+    copyTemplate(templateDir, template, projectDirectory);
 
     // Navigate to project directory
     process.chdir(projectDirectory);
@@ -59,6 +60,17 @@ function displayVersion() {
 async function promptProjectDetails() {
   console.log("\n🚀 Let's create a new Express.js project!");
 
+  // Get available template options
+  const templates = fs.readdirSync(templateDir);
+
+  // Prompt user to select a template
+  const { template } = await inquirer.prompt({
+    type: "list",
+    name: "template",
+    message: "Choose a template:",
+    choices: templates,
+  });
+
   const questions = [
     {
       type: "input",
@@ -74,12 +86,15 @@ async function promptProjectDetails() {
     },
   ];
 
-  return inquirer.prompt(questions); // Prompt user and return answers
+  return inquirer.prompt(questions).then((answers) => ({
+    ...answers,
+    template,
+  })); // Prompt user and return answers including selected template
 }
 
-// Function to copy template to new project directory
-function copyTemplate(templateDir, projectDirectory) {
-  exec(`cp -r ${templateDir}/* ${projectDirectory}`); // Copy template files
+// Function to copy selected template to new project directory
+function copyTemplate(templateDir, template, projectDirectory) {
+  exec(`cp -r ${path.join(templateDir, template)}/* ${projectDirectory}`); // Copy template files
 }
 
 // Function to install project dependencies
