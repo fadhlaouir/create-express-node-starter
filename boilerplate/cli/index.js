@@ -13,6 +13,9 @@ const templateDir = path.join(boilerplateDir, "templates");
 // Main function to create the project
 async function main() {
   try {
+    // Display version
+    displayVersion();
+
     // Prompt user for project details
     const { projectName, projectDirectory } = await promptProjectDetails();
 
@@ -44,6 +47,12 @@ async function main() {
     // Display error message
     console.error("\n❌ An error occurred:", error.message || error);
   }
+}
+
+// Function to display version
+function displayVersion() {
+  const packageJson = require("../package.json");
+  console.log(`\ncreate-express-node-starter v${packageJson.version}`);
 }
 
 // Function to prompt user for project details
