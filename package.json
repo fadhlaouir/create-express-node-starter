@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "index.js",
   "bin": {
-    "create-express-node-starter": "./boilerplate/cli/index.js"
+    "npx create-express-node-starter": "./boilerplate/cli/index.js"
   },
   "scripts": {
     "release": "standard-version",
