@@ -4,7 +4,6 @@ const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
-const fse = require("fs-extra");
 
 const boilerplateDir = path.join(__dirname, "..");
 const templatesDir = path.join(boilerplateDir, "templates");
@@ -17,11 +16,25 @@ async function main() {
     // Prompt user to choose template
     const selectedTemplate = await promptTemplateSelection();
 
+    // Display loading message
+    console.log("Creating project...");
+
     // Copy template to new project directory
     copyTemplate(selectedTemplate, projectDirectory);
 
+    // Navigate to project directory
+    process.chdir(projectDirectory);
+
     // Install dependencies
-    await installDependencies(projectDirectory);
+    await installDependencies();
+
+    // Determine the npm command based on the operating system
+    const npmCommand =
+      process.platform === "win32" ? "npm run develop" : "npm run develop:mac";
+
+    // Run the appropriate npm script
+    console.log("Starting development server...");
+    exec(npmCommand);
 
     console.log(
       `Project '${projectName}' created successfully in ${projectDirectory}`
@@ -67,27 +80,19 @@ async function promptTemplateSelection() {
 
 function copyTemplate(template, projectDirectory) {
   const templatePath = path.join(templatesDir, template);
-  const destinationPath = path.join(process.cwd(), projectDirectory);
-  fse.copySync(templatePath, destinationPath);
+  exec(`cp -r ${templatePath}/* ${projectDirectory}`);
 }
 
-async function installDependencies(projectDirectory) {
+async function installDependencies() {
   return new Promise((resolve, reject) => {
-    const child = exec(`cd ${projectDirectory} && npm install`);
-    child.stdout.on("data", (data) => {
-      console.log(data.toString());
-    });
-    child.stderr.on("data", (data) => {
-      console.error(data.toString());
-    });
-    child.on("exit", (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(
-          new Error(`Failed to install dependencies with exit code ${code}`)
-        );
+    exec(`npm install`, (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
       }
+      if (stderr) {
+        reject(new Error(stderr));
+      }
+      resolve();
     });
   });
 }
