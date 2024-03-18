@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.13.0...v0.14.0) (2024-03-18)
+
+
+### Bug Fixes
+
+* Fix file path ([820ceeb](https://github.com/fadhlaouir/create-express-node-starter/commit/820ceebfd897785bbdadaf52baaf6e4245e3af7d))
+
 ## [0.13.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.12.0...v0.13.0) (2024-03-18)
 
 ## [0.12.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.11.0...v0.12.0) (2024-03-18)

@@ -1,6 +1,6 @@
 {
   "name": "create-express-node-starter",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "author": "@Raed Fadhlaoui <raed.fadhlaoui@hotmail.com>",
   "description": "CLI tool for bootstrapping Express.js projects with predefined templates",
   "license": "MIT",
