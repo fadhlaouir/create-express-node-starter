@@ -20,8 +20,8 @@ async function main() {
     const loading = createLoading("Creating project...");
 
     // Define directory paths
-    const boilerplateDir = path.join(__dirname, "..");
-    const templatesDir = path.join(boilerplateDir, "template");
+    const boilerplateDir = path.join(__dirname, "../templates");
+    const templatesDir = path.join(boilerplateDir, "basic");
 
     // Copy template to new project directory
     copyTemplate(templatesDir, projectDirectory);

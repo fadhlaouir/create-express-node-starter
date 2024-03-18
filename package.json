@@ -4,11 +4,13 @@
   "author": "@Raed Fadhlaoui <raed.fadhlaoui@hotmail.com>",
   "description": "CLI tool for bootstrapping Express.js projects with predefined templates",
   "license": "MIT",
-  "main": "index.js",
+  "main": "boilerplate/cli/index.js",
   "bin": {
     "create-express-node-starter": "./boilerplate/cli/index.js"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node boilerplate/cli/index.js",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
