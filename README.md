@@ -1,11 +1,13 @@
-# npx-create-express-node-starter
+# create-express-node-starter
+
+CLI tool for bootstrapping Express.js projects with a predefined template.
 
 [![Author](http://img.shields.io/badge/author-@rfadhlaoui-blue.svg)](https://tn.linkedin.com/in/fadhlaouiraed)
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 
 ## Overview
 
-`npx-create-express-node-starter` is a versatile tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
+`create-express-node-starter` is a versatile tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
 
 ## Features
 
@@ -18,10 +20,10 @@
 
 ## Installation
 
-To create a new Express.js project using npx-create-express-node-starter, simply run the following command:
+To create a new Express.js project using create-express-node-starter, simply run the following command:
 
 ```
-npx npx-create-express-node-starter
+npx create-express-node-starter
 ```
 
 Follow the prompts to enter the project name and directory, choose a template, and start your project.
@@ -30,7 +32,7 @@ Follow the prompts to enter the project name and directory, choose a template, a
 
 1- `Install Node.js:` Ensure you have Node.js installed on your machine. You can download it from nodejs.org.
 
-2- `Create a New Project:` Run npx npx-create-express-node-starter in your terminal and follow the prompts to set up your project.
+2- `Create a New Project:` Run npx create-express-node-starter in your terminal and follow the prompts to set up your project.
 
 3- `Start Development:` Navigate to your project directory and run npm run develop to start the development server.
 
