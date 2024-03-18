@@ -5,7 +5,7 @@
 
 ## Overview
 
-`npx-create-express-node-starter` is a versatile tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
+`create-express-node-starter` is a versatile tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
 
 ## Features
 
@@ -21,7 +21,7 @@
 To create a new Express.js project using npx-create-express-node-starter, simply run the following command:
 
 ```
-npx npx-create-express-node-starter
+npx create-express-node-starter
 ```
 
 Follow the prompts to enter the project name and directory, choose a template, and start your project.

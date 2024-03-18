@@ -22,6 +22,7 @@
     "template"
   ],
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "inquirer": "^8.0.0"
   }
 }
