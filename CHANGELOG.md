@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.18.0...v0.19.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* Update delete function ([21e0bc5](https://github.com/fadhlaouir/create-express-node-starter/commit/21e0bc5fcfcfa88589e1bb249e60a390d05e1217))
+
 ## [0.18.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.16.0...v0.18.0) (2024-03-19)
 
 
