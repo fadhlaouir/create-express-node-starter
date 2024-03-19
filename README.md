@@ -6,7 +6,6 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/create-express-node-starter.svg)](https://www.npmjs.com/package/create-express-node-starter)
 
-
 ## Overview
 
 `create-express-node-starter` is a versatile tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
@@ -22,11 +21,15 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 
 ## Installation
 
-To create a new Express.js project using create-express-node-starter, simply run the following command:
+1.  **Install CLI Tool:**
+    Before using `npx` to create a new Express.js project, make sure to install the CLI tool globally by running:
 
-```
-npx create-express-node-starter
-```
+        npm install -g create-express-node-starter
+
+2.  **Create a New Project:**
+    To create a new Express.js project using `create-express-node-starter`, run:
+
+        npx create-express-node-starter
 
 Follow the prompts to enter the project name and directory, choose a template, and start your project.
 
@@ -34,9 +37,9 @@ Follow the prompts to enter the project name and directory, choose a template, a
 
 1- `Install Node.js:` Ensure you have Node.js installed on your machine. You can download it from nodejs.org.
 
-2- `Create a New Project:` Run npx create-express-node-starter in your terminal and follow the prompts to set up your project.
+2- `Create a New Project:` Run `npx create-express-node-starter` in your terminal and follow the prompts to set up your project.
 
-3- `Start Development:` Navigate to your project directory and run npm run develop to start the development server.
+3- `Start Development:` Navigate to your project directory and run `npm run develop` if you're on windows or `npm run develop:mac` if you on MAC OS or LINUX to start the development server.
 
 4- `Explore API Documentation:` Access the Swagger API documentation at http://localhost:5000/api-docs to explore and test your API endpoints.
 
