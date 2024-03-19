@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.19.0...v0.20.0) (2024-03-19)
+
+
+### Features
+
+* Implement CODE_OF_CONDUCT.md ([1bc40ee](https://github.com/fadhlaouir/create-express-node-starter/commit/1bc40ee3e67e943d188c897a7977d4c29b1513f0))
+* Implement contributing.md ([5244007](https://github.com/fadhlaouir/create-express-node-starter/commit/52440071d84d518924817f5ab38ee4359a1aa0e6))
+* Implement SECURITY.md ([4d0a492](https://github.com/fadhlaouir/create-express-node-starter/commit/4d0a492445466d9b8fe1d5ffad13bdc5de6ae85b))
+
 ## [0.19.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.18.0...v0.19.0) (2024-03-19)
 
 
