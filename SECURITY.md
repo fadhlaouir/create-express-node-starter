@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-At [Your Organization], we take security vulnerabilities very seriously. If you believe you have found a security vulnerability in our project, please report it to us as soon as possible. We appreciate your help in disclosing the issue responsibly.
+We take security vulnerabilities very seriously. If you believe you have found a security vulnerability in our project, please report it to us as soon as possible. We appreciate your help in disclosing the issue responsibly.
 
 To report a security vulnerability, please email us at [raed.fadhlaoui@hotmail.com](mailto:raed.fadhlaoui@hotmail.com) with the following details:
 
