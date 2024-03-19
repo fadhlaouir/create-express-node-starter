@@ -2,6 +2,8 @@
 
 [![Author](http://img.shields.io/badge/author-@rfadhlaoui-blue.svg)](https://tn.linkedin.com/in/fadhlaouiraed)
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
+[![Downloads](https://img.shields.io/npm/dt/express-node-starter.svg)](https://www.npmjs.com/package/express-node-starter)
+
 
 **REST API Developed with Node.js, Express, MongoDB**
 
@@ -104,34 +106,14 @@ npm install
 │   │   └── husky.sh
 │   ├── pre-commit
 │   └── pre-push
-├── boilerplate
+├── cli
 │   ├── _
 │   │   ├── deleteCrud.js
 │   │   ├── generateEmptyCrud.js
 │   │   ├── generateMinimalCrud.js
 │   │   └── helpers.js
-│   ├── crudOperation.js
 │   ├── index.js
 │   └── README.md
-├── src
-│   ├── controllers
-│   │   ├── auth.controller.js
-│   │   └── user.controller.js
-│   ├── middlewares
-│   │   ├── multer.js
-│   │   └── verify-token.js
-│   ├── models
-│   │   └── UserModel.js
-│   ├── routes
-│   │   ├── auth.route.js
-│   │   └── user.route.js
-│   ├── template
-│   │   └── userAccountEmailTemplates.js
-│   ├── utils
-│   │   └── helpers.js
-│   └── swagger.js
-├── uploads
-│   └── images.*
 ├── .commitlintrc.json
 ├── .editorconfig
 ├── .env
@@ -146,17 +128,25 @@ npm install
 ├── package.json
 ├── README.md
 └── server.js
+
 ```
 
 ## How to run
 
 ### Running API server locally
 
+If you would like to run the API server on your local environment, you can do so by running the following command:
+Windows OS
+
 ```bash
 npm run develop
 ```
 
-You will know server is running by checking the output of the command `npm run develop`
+Linux OS or Mac OS
+
+```bash
+npm run develop:mac
+```
 
 ```bash
 Connected to the database:YOUR_DB_CONNECTION_STRING
@@ -189,7 +179,7 @@ If you need to add more controllers to the project just create a new file in `sr
 2. Run the following command:
 
 ```bash
-npm run crud-operation
+npm run crud:operation
 ```
 
 See the [CLI README](cli/README.md) section for more details on how to use the CLI to generate or delete CRUD operations.

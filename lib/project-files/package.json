@@ -1,19 +1,18 @@
 {
   "name": "express-node-starter",
-  "version": "1.7.0",
+  "version": "1.0.0",
   "main": "server.js",
   "author": "@Raed Fadhlaoui <raed.fadhlaoui@hotmail.com>",
   "description": "Express, MongoDB, Firebase, and Swagger for API documentation starter for building RESTful APIs",
   "license": "MIT",
   "bin": {
-    "express-node-starter": "./boilerplate/cli/crudOperation.js",
-    "create-express-node-starter": "./boilerplate/cli/index.js"
+    "crud:operation": "cli/index.js"
   },
   "scripts": {
     "start": "NODE_ENV=production && node server.js",
     "develop": "SET NODE_ENV=development && nodemon server.js",
     "develop:mac": "NODE_ENV=development && nodemon server.js",
-    "crud-operation": "node boilerplate/cli/crudOperation.js generate",
+    "crud:operation": "node cli/index.js generate",
     "lint:check": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format:check": "prettier --check .",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
@@ -50,7 +49,7 @@
     "fs-extra": "^11.2.0",
     "inquirer": "^8.0.0",
     "install": "^0.13.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^6.2.4",
     "morgan": "^1.10.0",
