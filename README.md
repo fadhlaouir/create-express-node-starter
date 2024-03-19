@@ -2,12 +2,9 @@
 
 CLI tool for bootstrapping Express.js projects with a predefined template.
 
-[![Author](http://img.shields.io/badge/author-@rfadhlaoui-blue.svg)]
-(https://tn.linkedin.com/in/fadhlaouiraed)
-[![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)]
-(https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/npm/dt/create-express-node-starter.svg)]
-(https://www.npmjs.com/package/create-express-node-starter)
+[![Author](http://img.shields.io/badge/author-@rfadhlaoui-blue.svg)](https://tn.linkedin.com/in/fadhlaouiraed)
+[![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
+[![Downloads](https://img.shields.io/npm/dt/create-express-node-starter.svg)](https://www.npmjs.com/package/create-express-node-starter)
 
 ## Overview
 
