@@ -19,6 +19,14 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 - **Flexible Project Structure:** Follows a modular project structure that promotes scalability, maintainability, and code organization.
 - **Extensible:** Easily extend and customize the boilerplate to suit your specific project requirements.
 
+## Project Templates
+
+`create-express-node-starter` now offers three project templates to choose from:
+
+- **Basic Project 🌱:** A basic Express.js project with Node.js and MongoDB setup.
+- **User CRUD 🚀:** An Express.js project with user CRUD operations.
+- **Full Stack User Authentication 🔒:** An Express.js project with user CRUD operations and JWT authentication.
+
 ## Installation
 
 1. **Install CLI Tool:**
