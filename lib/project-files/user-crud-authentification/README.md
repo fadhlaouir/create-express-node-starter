@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/express-node-starter.svg)](https://www.npmjs.com/package/express-node-starter)
 
-**REST API Developed with Node.js, Express, MongoDB**
+**User Crud and AUTH entification REST API Developed with Node.js, Express, MongoDB**
 
 ## Overview
 
@@ -61,35 +61,28 @@ API Documentation [Swagger]
 
 ## How to install
 
-### Using Git (recommended)
+## Setting up environments
 
-1.  Clone the project from github.
+1. Navigate to you project root directory.
 
 ```bash
-git clone https://github.com/fadhlaouir/express-node-starter.git
+cd {{Project Name}}
 ```
 
-### Using manual download ZIP
-
-1.  Download repository
-2.  Uncompress to your desired directory
-
-### Install npm dependencies after installing (Git or manual download)
+2. Install the required dependencies.
 
 ```bash
-cd express-node-starter
 npm install
 ```
 
-## Setting up environments
+3.  You will find a file named `.env.example` on root directory of project.
 
-1.  You will find a file named `.env.example` on root directory of project.
-2.  Create a new file by copying and pasting the file and then renaming it to just `.env`
+4.  Create a new file by copying and pasting the file and then renaming it to just `.env`
     ```bash
     cp .env.example .env
     ```
-3.  The file `.env` is already ignored, so you never commit your credentials.
-4.  Change the values of the file to your environment. Helpful comments added to `.env.example` file to understand the constants.
+5.  The file `.env` is already ignored, so you never commit your credentials.
+6.  Change the values of the file to your environment. Helpful comments added to `.env.example` file to understand the constants.
 
 ## Project structure
 
@@ -109,6 +102,21 @@ npm install
 │   │   └── helpers.js
 │   ├── index.js
 │   └── README.md
+├── src
+│   ├── controllers
+│   │   ├── auth.controller.js
+│   │   └── user.controller.js
+│   ├── middlewares
+│   │   ├── multer.js
+│   │   └── verify-token.js
+│   ├── models
+│   │   └── user.model.js
+│   ├── routes
+│   │   ├── auth.route.js
+│   │   └── user.route.js
+│   ├── utils
+│   │   └── helpers.js
+│   └── swagger.json
 ├── .commitlintrc.json
 ├── .editorconfig
 ├── .env
@@ -153,20 +161,6 @@ Press CTRL + C to stop the process.
 **Note:**
 
 `YOUR_DEVELOPMENT_DB_CONNECTION_STRING` will be your MongoDB connection string for `development` environment.
-
-`YOUR_PRODUCTION_DB_CONNECTION_STRING` will be your MongoDB connection string for `production` environment.
-
-### Creating new models
-
-If you need to add more models to the project just create a new file in `src/models/` and use them in the controllers.
-
-### Creating new routes
-
-If you need to add more routes to the project just create a new file in `src/routes/` and import it in `src/app` to be loaded.
-
-### Creating new controllers
-
-If you need to add more controllers to the project just create a new file in `src/controllers/` and use them in the routes.
 
 ## Using the CLI to generate CRUD operations
 

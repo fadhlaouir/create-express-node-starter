@@ -1,5 +1,5 @@
 {
-  "name": "express-node-starter",
+  "name": "user-crud-authentification",
   "version": "1.0.0",
   "main": "server.js",
   "author": "@Raed Fadhlaoui <raed.fadhlaoui@hotmail.com>",
