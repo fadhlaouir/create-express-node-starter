@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v1.0.0...v2.0.0) (2024-03-20)
+
+
+### Features
+
+* Implement 3 templates :tada: ([64d37ff](https://github.com/fadhlaouir/create-express-node-starter/commit/64d37ff38e457437c90d15bf6736ebea2f838a82))
+* Implement basic project template :tada: ([c30608f](https://github.com/fadhlaouir/create-express-node-starter/commit/c30608fcce6502c5d55007c9bf8fb70a939648d8))
+* Implement basic project template :tada: ([3223f16](https://github.com/fadhlaouir/create-express-node-starter/commit/3223f1684cde8502b5a8f3ea1b4a0c9d0bd418ef))
+* Implement Product CRUD template :tada: ([c85cbd1](https://github.com/fadhlaouir/create-express-node-starter/commit/c85cbd18115762a050062a1ab9891cc667759f56))
+* Implement template for user-crud-authentification :tada: ([d79e98a](https://github.com/fadhlaouir/create-express-node-starter/commit/d79e98aa18e5ce83b320da2e4541c634bd1b1070))
+
 ## [1.0.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.21.0...v1.0.0) (2024-03-19)
 
 ## [0.21.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v0.20.0...v0.21.0) (2024-03-19)
