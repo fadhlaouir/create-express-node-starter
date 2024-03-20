@@ -4,11 +4,11 @@
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/express-node-starter.svg)](https://www.npmjs.com/package/express-node-starter)
 
-**User Crud and AUTH entification REST API Developed with Node.js, Express, MongoDB**
+**Product Crud and AUTH entification REST API Developed with Node.js, Express, MongoDB**
 
 ## Overview
 
-This project provides a robust API skeleton written in JavaScript ES6, suitable for any project. It offers features such as authentication, authorization, JWT tokens, role management, Upload Image with Multer, CRUD operations, and more. Additionally, it automates the generation of CRUD (Create, Read, Update, Delete) operations for entities within a MongoDB database, streamlining the development process for Node.js applications built on top of Express.js.
+This project provides a robust API skeleton written in JavaScript ES6, suitable for any project. It automates the generation of CRUD (Create, Read, Update, Delete) operations for entities within a MongoDB database, streamlining the development process for Node.js applications built on top of Express.js.
 
 ## Table of Contents
 
@@ -37,11 +37,7 @@ API Documentation [Swagger]
 
 ## Features
 
-- Authentication and Authorization
-- JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` will be returned in the Login response.
-- Role Manage
-- Update Profile/Password User Account
-- Upload Image with multer
+- auto CRUD operations.
 - Pre-defined response structures with proper status codes.
 - Included CORS.
 - Validations added.
@@ -105,19 +101,10 @@ npm install
 │   └── README.md
 ├── src
 │   ├── controllers
-│   │   ├── auth.controller.js
-│   │   └── user.controller.js
-│   ├── middlewares
-│   │   ├── multer.js
-│   │   └── verify-token.js
 │   ├── models
-│   │   └── user.model.js
 │   ├── routes
-│   │   ├── auth.route.js
-│   │   └── user.route.js
 │   ├── utils
-│   │   └── helpers.js
-│   └── swagger.json
+│       └── helpers.js
 ├── .commitlintrc.json
 ├── .editorconfig
 ├── .env
