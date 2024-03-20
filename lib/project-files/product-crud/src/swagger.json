@@ -1,0 +1,213 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Core API",
+    "description": "Backend for any application documented with Swagger",
+    "license": {
+      "name": "MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
+    },
+    "contact": {
+      "name": "Raed Fadhlaoui",
+      "url": "https://www.linkedin.com/in/fadhlaouiraed/",
+      "email": "raed.fadhlaoui@hotmail.com"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/v1/api",
+  "tags": [
+    {
+      "name": "Product",
+      "description": "API for product management"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Return Array of products",
+            "schema": {
+              "$ref": "#/definitions/Products"
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of product that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Get product with given ID",
+        "responses": {
+          "200": {
+            "description": "Product is found",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update product with give ID",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "description": "Product with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product is updated",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete product with given ID",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "Product is deleted"
+          }
+        }
+      }
+    },
+    "/product": {
+      "post": {
+        "summary": "Create new product",
+        "tags": [
+          "Product"
+        ],
+        "description": "Create new product",
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "description": "Product that we want to create",
+            "schema": {
+              "$ref": "#/definitions/NewProduct"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New product is created",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "UnauthorizedError": {
+            "description": "Authentication information is missing or invalid"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NewProduct": {
+      "required": [
+        "name",
+        "description",
+        "price",
+        "quantity",
+        "photo"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "quantity": {
+          "type": "number"
+        },
+        "photo": {
+          "type": "string"
+        }
+      }
+    },
+    "Product": {
+      "required": [
+        "name",
+        "description",
+        "price",
+        "quantity",
+        "photo",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "quantity": {
+          "type": "number"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "Products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Product"
+      }
+    }
+  }
+}

@@ -24,8 +24,8 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 `create-express-node-starter` now offers three project templates to choose from:
 
 - **Basic Project 🌱:** A basic Express.js project with Node.js and MongoDB setup.
-- **User CRUD 🚀:** An Express.js project with user CRUD operations.
-- **Full Stack User Authentication 🔒:** An Express.js project with user CRUD operations and JWT authentication.
+- **Product CRUD 🚀:** An Express.js project with product CRUD operations.
+- **User CRUD AUTHENTIFICATION 🔒:** An Express.js project with user CRUD operations and authentication (register and login).
 
 ## Installation
 
