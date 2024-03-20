@@ -4,12 +4,11 @@
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/express-node-starter.svg)](https://www.npmjs.com/package/express-node-starter)
 
-
 **REST API Developed with Node.js, Express, MongoDB**
 
 ## Overview
 
-This project provides a robust API skeleton written in JavaScript ES6, suitable for any project. It offers features such as authentication, authorization, JWT tokens, role management, CRUD operations, email notifications, and more. Additionally, it automates the generation of CRUD (Create, Read, Update, Delete) operations for entities within a MongoDB database, streamlining the development process for Node.js applications built on top of Express.js.
+This project provides a robust API skeleton written in JavaScript ES6, suitable for any project. It offers features such as authentication, authorization, JWT tokens, role management, CRUD operations, and more. Additionally, it automates the generation of CRUD (Create, Read, Update, Delete) operations for entities within a MongoDB database, streamlining the development process for Node.js applications built on top of Express.js.
 
 ## Table of Contents
 
@@ -42,13 +41,9 @@ API Documentation [Swagger]
 - JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` will be returned in the Login response.
 - Role Manage
 - Update Profile/Password User Account
-- Reset Password Mail using `nodemailer`
 - Pre-defined response structures with proper status codes.
 - Included CORS.
-- System notification with Firebase
-- Email Template and settings
 - Validations added.
-- Included API collection for Postman.
 - Light-weight project.
 - Linting with [Eslint](https://eslint.org/). (Airbnb style)
 - Included CLI for generating CRUD operations.
