@@ -6,7 +6,6 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/fadhlaouir/express-node-starter/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/create-express-node-starter.svg)](https://www.npmjs.com/package/create-express-node-starter)
 
-
 ## Overview
 
 `create-express-node-starter` is a versatile CLI tool designed to streamline the process of setting up a new Express.js project with Node.js. It provides a comprehensive boilerplate with essential features such as authentication, MongoDB integration, Swagger API documentation, and more, enabling developers to kick-start their API development journey quickly and efficiently.
@@ -86,6 +85,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 If you find this project valuable, consider supporting us through Buy Me a Coffee. Your sponsorship helps us maintain and improve the project, ensuring better features, updates, and support for the community.
 
 <a href="https://www.buymeacoffee.com/fadhlaouir" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-
-
