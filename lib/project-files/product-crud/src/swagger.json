@@ -22,21 +22,13 @@
       "description": "API for product management"
     }
   ],
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/products": {
       "get": {
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "summary": "Get all products",
         "responses": {
           "200": {
@@ -59,9 +51,7 @@
         }
       ],
       "get": {
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "summary": "Get product with given ID",
         "responses": {
           "200": {
@@ -74,9 +64,7 @@
       },
       "put": {
         "summary": "Update product with give ID",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [
           {
             "name": "product",
@@ -98,9 +86,7 @@
       },
       "delete": {
         "summary": "Delete product with given ID",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "responses": {
           "200": {
             "description": "Product is deleted"
@@ -111,9 +97,7 @@
     "/product": {
       "post": {
         "summary": "Create new product",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "description": "Create new product",
         "parameters": [
           {
@@ -125,9 +109,7 @@
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "New product is created",
@@ -144,13 +126,7 @@
   },
   "definitions": {
     "NewProduct": {
-      "required": [
-        "name",
-        "description",
-        "price",
-        "quantity",
-        "photo"
-      ],
+      "required": ["name", "description", "price", "quantity", "photo"],
       "properties": {
         "name": {
           "type": "string"
