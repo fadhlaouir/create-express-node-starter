@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.1.0...v2.2.0) (2024-03-21)
+
+
+### Features
+
+* Enhanced CRUD Generation with Directory Creation :tada: ([fe43ab6](https://github.com/fadhlaouir/create-express-node-starter/commit/fe43ab6e7e6d90023d6e00ea769bb08d566e3dde))
+* Enhanced CRUD Generation with Directory Creation :tada: ([f49d762](https://github.com/fadhlaouir/create-express-node-starter/commit/f49d76268578c1725dcf20a4dba0219b1e135627))
+
 ## [2.1.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.0.0...v2.1.0) (2024-03-21)
 
 ## [2.0.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v1.0.0...v2.0.0) (2024-03-20)
