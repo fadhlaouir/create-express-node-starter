@@ -76,6 +76,14 @@ This command will create controllers, routes, and models for your CRUD operation
 
 Contributions are welcome! If you have suggestions, feature requests, or bug reports, please open an issue on the GitHub repository. Pull requests are also encouraged. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details.
 
+
+# Sponsor on Buy Me a Coffee
+
+If you find this project valuable, consider supporting us through Buy Me a Coffee. Your sponsorship helps us maintain and improve the project, ensuring better features, updates, and support for the community.
+
+[Support Us](https://www.buymeacoffee.com/fadhlaouir)
+
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
