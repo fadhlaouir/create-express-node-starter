@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.2.0...v2.3.0) (2024-03-28)
+
+
+### Features
+
+* Improve cli code :tada: ([75e883d](https://github.com/fadhlaouir/create-express-node-starter/commit/75e883d4cb1a5bc05409de04909153d5d362d15e))
+* Sanitize and validate user inputs to prevent injection attacks and ensure data integrity ([323c6cd](https://github.com/fadhlaouir/create-express-node-starter/commit/323c6cdcb32ce9de57f752d7b8219ca6b7df0507))
+
 ## [2.2.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.1.0...v2.2.0) (2024-03-21)
 
 
