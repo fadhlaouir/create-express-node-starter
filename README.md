@@ -32,23 +32,55 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
 1. **Install CLI Tool:**
    Before using `npx` to create a new Express.js project, make sure to install the CLI tool globally by running:
 
-   ```bash
-   npm install -g create-express-node-starter
-   ```
+   - For Windows:
+
+     ```bash
+     npm install -g create-express-node-starter
+     ```
+
+   - For macOS or Linux:
+     ```bash
+     sudo npm install -g create-express-node-starter
+     ```
 
 2. **Create a New Project:**
    To create a new Express.js project using `create-express-node-starter`, run:
 
-   ```bash
-    npx create-express-node-starter
-   ```
+- For Windows:
+
+```bash
+ npx create-express-node-starter
+```
+
+- For macOS or Linux:
+
+```bash
+sudo npx create-express-node-starter
+```
 
 3. **Follow the Prompts:**
    The CLI tool will guide you through the process of setting up your new project, allowing you to customize various options such as project name, description, author, and more.
 
 ## Getting Started
 
-1. **Start Development:**
+1. **Navigate to Project Directory:**
+   After creating your new Express.js project, navigate to the project directory using the following command:
+
+```bash
+cd <project-name>
+```
+
+2. **Install Dependencies:**
+   Install the project dependencies by running:
+
+```bash
+npm install
+```
+
+3. **Configure Environment Variables:**
+   copy the `.env.example` file to `.env` and update the environment variables as needed.
+
+4. **Start Development:**
    Navigate to your project directory and run the following command to start the development server:
 
 - For Windows:
@@ -60,10 +92,10 @@ CLI tool for bootstrapping Express.js projects with a predefined template.
   npm run develop:mac
   ```
 
-2. **Explore API Documentation:**
+5. **Explore API Documentation:**
    Access the Swagger API documentation at [http://localhost:5000/api-docs](http://localhost:5000/api-docs) to explore and test your API endpoints.
 
-3. **Generate CRUD Operations:**
+6. **Generate CRUD Operations:**
    After running the project, you can create CRUD operations using the following command:
 
 ```bash
