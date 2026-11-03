@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.1](https://github.com/fadhlaouir/create-express-node-starter/compare/v3.0.0...v3.0.1) (2026-11-03)
+
+### Bug Fixes
+
+* avoid Node's shell argument warning when installing on Windows ([8883fa1](https://github.com/fadhlaouir/create-express-node-starter/commit/8883fa1fcced6831f21cff40ab48edb5e873437c))
+
 ## [3.0.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.4.0...v3.0.0) (2026-11-03)
 
 ### ⚠ BREAKING CHANGES
