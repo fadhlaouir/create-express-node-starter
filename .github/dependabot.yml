@@ -1,6 +1,7 @@
 version: 2
 updates:
-  # The CLI itself.
+  # The CLI's own tooling. The templates are rebuilt from express-node-starter,
+  # which has its own Dependabot: update there, then run npm run sync:templates.
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -8,21 +9,11 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
-    commit-message:
-      prefix: chore
-      include: scope
-
-  # The templates copied into every generated project: keep what users start with up to date.
-  - package-ecosystem: npm
-    directories:
-      - /lib/project-files/basic-project
-      - /lib/project-files/product-crud
-      - /lib/project-files/user-crud-authentification
-    schedule:
-      interval: weekly
-    groups:
-      template-minor-and-patch:
-        update-types: [minor, patch]
+    # Major versions need code changes: upgrade them on purpose, not from a bot.
+    # Vulnerabilities are still reported in the Security tab.
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]
     commit-message:
       prefix: chore
       include: scope
@@ -33,6 +24,6 @@ updates:
       interval: weekly
     groups:
       actions:
-        patterns: ["*"]
+        patterns: ['*']
     commit-message:
       prefix: ci

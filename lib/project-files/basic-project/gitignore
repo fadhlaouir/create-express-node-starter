@@ -1,0 +1,12 @@
+/node_modules
+npm-debug.log*
+.DS_Store
+/coverage
+
+# Uploaded files
+/uploads
+
+# Environment: never commit secrets
+.env
+.env.*
+!.env.example

@@ -29,6 +29,26 @@ We welcome contributions from developers of all skill levels! If you'd like to c
 3. Open a pull request with a clear title and description of your changes.
 4. Ensure your code adheres to the project's coding style and conventions.
 
+### Development
+
+You need Node.js 22.13 or later.
+
+```bash
+npm install
+npm test                 # CLI tests
+npm run test:templates   # create, install and test every template
+npm run lint
+npm run format:check
+```
+
+The templates in `lib/project-files/` are generated from [express-node-starter](https://github.com/fadhlaouir/express-node-starter); don't edit them by hand. Fix the code there (or in `scripts/overlays/` for template-only files), then rebuild:
+
+```bash
+npm run sync:templates -- ../express-node-starter
+```
+
+CI fails when the templates no longer match express-node-starter.
+
 ## Code of Conduct
 
 Please note that by contributing to this project, you agree to abide by the terms of the [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to conduct themselves accordingly.

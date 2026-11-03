@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cli:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+
+  # Creates each template as users get it, then runs its tests, lint and format check.
+  templates:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+        template: [basic, product, auth]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run test:templates -- ${{ matrix.template }}
+
+  # The templates are built from express-node-starter: fail when they fall behind.
+  in-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: fadhlaouir/express-node-starter
+          path: .starter
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run sync:templates -- .starter
+      - name: Templates match express-node-starter
+        run: |
+          rm -rf .starter
+          git diff --exit-code -- lib/project-files || {
+            echo "::error::Templates are out of date. Run: npm run sync:templates -- ../express-node-starter"
+            exit 1
+          }
+          test -z "$(git status --porcelain -- lib/project-files)"

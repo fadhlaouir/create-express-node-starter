@@ -1,0 +1,23 @@
+# Run the API and MongoDB: docker compose up --build
+services:
+  api:
+    build: .
+    ports:
+      - '5000:5000'
+    environment:
+      NODE_ENV: production
+      PROD_DATABASE: mongodb://mongo:27017/{{projectName}}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:8
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  uploads:
+  mongo-data:

@@ -1,40 +1,226 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.3",
   "info": {
+    "title": "{{projectName}}",
     "version": "1.0.0",
-    "title": "Core API",
-    "description": "Backend for any application documented with Swagger",
-    "license": {
-      "name": "MIT",
-      "url": "https://spdx.org/licenses/MIT.html"
-    },
-    "contact": {
-      "name": "Raed Fadhlaoui",
-      "url": "https://www.linkedin.com/in/fadhlaouiraed/",
-      "email": "raed.fadhlaoui@hotmail.com"
-    }
+    "description": "Product API with Express 5 and MongoDB."
   },
-  "host": "localhost:5000",
-  "basePath": "/v1/api",
-  "tags": [
+  "servers": [
     {
-      "name": "Product",
-      "description": "API for product management"
+      "url": "/v1/api"
     }
   ],
-  "schemes": ["http"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Product catalogue"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Message": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductInput": {
+        "type": "object",
+        "required": ["name", "price"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Blue mug"
+          },
+          "description": {
+            "type": "string",
+            "example": "Ceramic, 350 ml"
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0,
+            "example": 12.5
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 3
+          }
+        }
+      },
+      "Product": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProductInput"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "photo": {
+                "type": "string",
+                "example": "uploads/3f2b8c1e-6a4d-4e2f-9b7a-1c5d8e0f2a4b.png"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "responses": {
+      "Message": {
+        "description": "Result",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Message"
+            }
+          }
+        }
+      }
+    }
+  },
   "paths": {
     "/products": {
+      "post": {
+        "tags": ["Products"],
+        "summary": "Create a product",
+        "description": "Send JSON, or multipart form data to attach a photo (JPEG, PNG, GIF or WebP, up to 5 MB).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductInput"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductInput"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "photo": {
+                        "type": "string",
+                        "format": "binary"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "product": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/Message"
+          }
+        }
+      },
       "get": {
-        "tags": ["Product"],
-        "summary": "Get all products",
+        "tags": ["Products"],
+        "summary": "List products, newest first",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search product names (case-insensitive)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Return Array of products",
-            "schema": {
-              "$ref": "#/definitions/Products"
+            "description": "A page of products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "products": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Product"
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "page": {
+                          "type": "integer"
+                        },
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        },
+                        "pages": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -46,143 +232,107 @@
           "name": "id",
           "in": "path",
           "required": true,
-          "description": "ID of product that we want to find",
-          "type": "string"
+          "schema": {
+            "type": "string"
+          }
         }
       ],
       "get": {
-        "tags": ["Product"],
-        "summary": "Get product with given ID",
+        "tags": ["Products"],
+        "summary": "Get a product",
         "responses": {
           "200": {
-            "description": "Product is found",
-            "schema": {
-              "$ref": "#/definitions/Product"
+            "description": "The product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "product": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
             }
+          },
+          "404": {
+            "$ref": "#/components/responses/Message"
           }
         }
       },
       "put": {
-        "summary": "Update product with give ID",
-        "tags": ["Product"],
-        "parameters": [
-          {
-            "name": "product",
-            "in": "body",
-            "description": "Product with new values of properties",
-            "schema": {
-              "$ref": "#/definitions/Product"
+        "tags": ["Products"],
+        "summary": "Update a product",
+        "description": "Only the fields sent are changed. A new photo replaces the old one.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductInput"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductInput"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "photo": {
+                        "type": "string",
+                        "format": "binary"
+                      }
+                    }
+                  }
+                ]
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "Product is updated",
-            "schema": {
-              "$ref": "#/definitions/Product"
+            "description": "The updated product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "product": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
             }
+          },
+          "404": {
+            "$ref": "#/components/responses/Message"
+          },
+          "422": {
+            "$ref": "#/components/responses/Message"
           }
         }
       },
       "delete": {
-        "summary": "Delete product with given ID",
-        "tags": ["Product"],
+        "tags": ["Products"],
+        "summary": "Delete a product and its photo",
         "responses": {
           "200": {
-            "description": "Product is deleted"
-          }
-        }
-      }
-    },
-    "/product": {
-      "post": {
-        "summary": "Create new product",
-        "tags": ["Product"],
-        "description": "Create new product",
-        "parameters": [
-          {
-            "name": "product",
-            "in": "body",
-            "description": "Product that we want to create",
-            "schema": {
-              "$ref": "#/definitions/NewProduct"
-            }
-          }
-        ],
-        "produces": ["application/json"],
-        "responses": {
-          "200": {
-            "description": "New product is created",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
+            "$ref": "#/components/responses/Message"
           },
-          "UnauthorizedError": {
-            "description": "Authentication information is missing or invalid"
+          "404": {
+            "$ref": "#/components/responses/Message"
           }
         }
-      }
-    }
-  },
-  "definitions": {
-    "NewProduct": {
-      "required": ["name", "description", "price", "quantity", "photo"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "price": {
-          "type": "number"
-        },
-        "quantity": {
-          "type": "number"
-        },
-        "photo": {
-          "type": "string"
-        }
-      }
-    },
-    "Product": {
-      "required": [
-        "name",
-        "description",
-        "price",
-        "quantity",
-        "photo",
-        "createdAt",
-        "updatedAt"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "price": {
-          "type": "number"
-        },
-        "quantity": {
-          "type": "number"
-        },
-        "photo": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        }
-      }
-    },
-    "Products": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Product"
       }
     }
   }

@@ -6,8 +6,8 @@ Security fixes go into the latest release only. Projects you already generated a
 
 | Version | Supported |
 | ------- | --------- |
-| 2.x     | ✅        |
-| < 2.0   | ❌        |
+| 3.x     | ✅        |
+| < 3.0   | ❌        |
 
 ## What to Report
 

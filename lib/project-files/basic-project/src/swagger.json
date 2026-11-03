@@ -1,0 +1,42 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "{{projectName}}",
+    "version": "1.0.0",
+    "description": "REST API with Express 5 and MongoDB."
+  },
+  "servers": [
+    {
+      "url": "/v1/api"
+    }
+  ],
+  "tags": [],
+  "components": {
+    "schemas": {
+      "Message": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Message": {
+        "description": "Result",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Message"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {}
+}

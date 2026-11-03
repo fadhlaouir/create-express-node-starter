@@ -32,7 +32,7 @@ body:
     attributes:
       label: Versions
       description: Output of `node -v && npm -v`, and the create-express-node-starter version.
-      placeholder: "v22.11.0, 10.9.0, 2.4.0"
+      placeholder: 'v22.11.0, 10.9.0, 2.4.0'
     validations:
       required: true
   - type: input
