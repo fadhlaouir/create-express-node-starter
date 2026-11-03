@@ -1,0 +1,38 @@
+version: 2
+updates:
+  # The CLI itself.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: chore
+      include: scope
+
+  # The templates copied into every generated project: keep what users start with up to date.
+  - package-ecosystem: npm
+    directories:
+      - /lib/project-files/basic-project
+      - /lib/project-files/product-crud
+      - /lib/project-files/user-crud-authentification
+    schedule:
+      interval: weekly
+    groups:
+      template-minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
