@@ -53,9 +53,9 @@ No mail server yet? Sign-up still works: confirmation and reset links are printe
 
 | Template                                      | You get                                                                                                     | Tests |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----- |
-| `basic`: **Basic Project 🌱**                 | Express 5 and MongoDB, error handling, health check, API docs, CRUD generator                               | 9     |
-| `product`: **Product CRUD 🚀**                | Everything in Basic, plus a product API with pagination, search and photo uploads                           | 15    |
-| `auth`: **Full Stack User Authentication 🔒** | Everything in Basic, plus sign-up with email confirmation, JWT, roles, password reset, profiles with photos | 30    |
+| `basic`: **Basic Project 🌱**                 | Express 5 and MongoDB, error handling, rate limiting, health check, API docs, CRUD generator                | 11    |
+| `product`: **Product CRUD 🚀**                | Everything in Basic, plus a product API with pagination, search and photo uploads                           | 17    |
+| `auth`: **Full Stack User Authentication 🔒** | Everything in Basic, plus sign-up with email confirmation, JWT, roles, password reset, profiles with photos | 32    |
 
 **Every project includes:**
 

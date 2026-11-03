@@ -80,4 +80,4 @@ Starts the API on port 5000 with MongoDB 8, with uploads and data in Docker volu
 
 ## Security Built In
 
-Helmet security headers, image-only uploads with random names served from a folder that can't be escaped, validated numbers and strings (no MongoDB query injection), literal search text, and error responses that never include internal details in production.
+Helmet security headers, a rate limit on every API route (`API_RATE_LIMIT`, 300 requests per IP per 15 minutes), image-only uploads with random names served from a folder that can't be escaped, validated numbers and strings (no MongoDB query injection), literal search text, and error responses that never include internal details in production.

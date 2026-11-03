@@ -74,4 +74,4 @@ Starts the API on port 5000 with MongoDB 8.
 
 ## Security Built In
 
-Helmet security headers, request body size limits, string-only request helpers that block MongoDB query injection, and error responses that never include internal details in production.
+Helmet security headers, a rate limit on every API route (`API_RATE_LIMIT`, 300 requests per IP per 15 minutes), request body size limits, string-only request helpers that block MongoDB query injection, and error responses that never include internal details in production.

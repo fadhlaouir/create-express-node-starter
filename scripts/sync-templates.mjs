@@ -51,18 +51,12 @@ const AUTH_FILES = [
   'src/routes/user.route.js',
   'src/middlewares/verify-token.js',
   'src/middlewares/authorize.js',
-  'src/middlewares/rate-limit.js',
   'src/template/userAccountEmailTemplates.js',
   'src/utils/helpers.js',
   'test/auth.test.js',
   'test/users.test.js',
 ];
-const AUTH_DEPENDENCIES = [
-  'bcryptjs',
-  'express-rate-limit',
-  'jsonwebtoken',
-  'nodemailer',
-];
+const AUTH_DEPENDENCIES = ['bcryptjs', 'jsonwebtoken', 'nodemailer'];
 
 const TEMPLATES = [
   {
@@ -414,7 +408,12 @@ function replace(target, file, search, replacement) {
 
 function replaceAll(target, file, search, replacement) {
   const full = path.join(target, file);
-  if (!fs.existsSync(full)) return;
-  const text = fs.readFileSync(full, 'utf8');
+  let text;
+  try {
+    text = fs.readFileSync(full, 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') return; // not every template has every file
+    throw error;
+  }
   fs.writeFileSync(full, text.replaceAll(search, replacement));
 }

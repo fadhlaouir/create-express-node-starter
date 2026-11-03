@@ -86,4 +86,4 @@ Starts the API on port 5000 with MongoDB 8. Set `SECRET` in your shell or `.env`
 - String-only request fields block MongoDB query injection.
 - Sign-in and password reset don't reveal which emails have accounts.
 - Image-only uploads with random names, served from a folder that can't be escaped.
-- Rate limits on public auth routes, Helmet headers, and no internal details in production errors.
+- Rate limits on every API route (`API_RATE_LIMIT`) and stricter ones on public auth routes, Helmet headers, and no internal details in production errors.
