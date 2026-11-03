@@ -1,0 +1,42 @@
+name: 🐛 Bug report
+description: The CLI fails, or a generated project doesn't work as expected.
+labels: [bug]
+body:
+  - type: dropdown
+    id: template
+    attributes:
+      label: Template
+      options:
+        - Basic Project 🌱
+        - Product CRUD 🚀
+        - Full Stack User Authentication 🔒
+        - Not about a template (the CLI itself)
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you ran, and what went wrong. Paste the full error output.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Output of `node -v && npm -v`, and the create-express-node-starter version.
+      placeholder: "v22.11.0, 10.9.0, 2.4.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, macOS 15, Ubuntu 24.04…

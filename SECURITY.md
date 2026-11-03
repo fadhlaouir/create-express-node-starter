@@ -1,27 +1,35 @@
 # Security Policy
 
+## Supported Versions
+
+Security fixes go into the latest release only. Projects you already generated are yours: fixes to the templates reach new projects, so apply them to existing ones by hand when an advisory tells you to.
+
+| Version | Supported |
+| ------- | --------- |
+| 2.x     | ✅        |
+| < 2.0   | ❌        |
+
+## What to Report
+
+- **The CLI** (`lib/cli.js`): anything that runs unexpected commands, writes outside the project directory you chose, or installs something you didn't ask for.
+- **The templates** (`lib/project-files/`): vulnerabilities in the code a generated project starts with, such as authentication, authorization, file uploads, input handling or a missing `.gitignore` that would expose `.env`.
+- **The dependencies** a generated project installs, when a known vulnerability affects it.
+
 ## Reporting a Vulnerability
 
-We take security vulnerabilities very seriously. If you believe you have found a security vulnerability in our project, please report it to us as soon as possible. We appreciate your help in disclosing the issue responsibly.
+Please report it privately, never in a public issue:
 
-To report a security vulnerability, please email us at [raed.fadhlaoui@hotmail.com](mailto:raed.fadhlaoui@hotmail.com) with the following details:
+- **Preferred:** [open a private security advisory](https://github.com/fadhlaouir/create-express-node-starter/security/advisories/new) on GitHub.
+- **Or by email:** [raed.fadhlaoui@hotmail.com](mailto:raed.fadhlaoui@hotmail.com).
 
-- Description of the vulnerability
-- Steps to reproduce the vulnerability
-- Any additional information or context that may be helpful
+Include:
 
-Please do not disclose the vulnerability to others until we have had an opportunity to address it.
+- the version you used (`npm view create-express-node-starter version`, or the one in your `package.json`) and the template you chose;
+- the steps to reproduce;
+- what an attacker could do with it.
 
 ## Response Timeline
 
-We will acknowledge receipt of your report within 48 hours and will strive to keep you informed about the progress of our investigation and any steps we are taking to address the issue.
-
-We aim to resolve security vulnerabilities in a timely manner, and we will release patches or updates as soon as they are available.
-
-## Responsible Disclosure
-
-We encourage responsible disclosure of security vulnerabilities. We ask that you refrain from publicly disclosing the vulnerability until we have had an opportunity to address it.
-
-We appreciate your cooperation and assistance in keeping our project and our users safe.
-
-Thank you for your help in improving the security of our project.
+- We acknowledge your report within 48 hours.
+- We confirm the issue and share a plan within 7 days.
+- Once fixed, we publish a release and a GitHub security advisory, and credit you unless you prefer not to be named.
