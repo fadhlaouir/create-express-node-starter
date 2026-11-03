@@ -1,6 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [3.0.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.4.0...v3.0.0) (2026-11-03)
+
+### ⚠ BREAKING CHANGES
+
+* Node.js 22.13 or later is required. Generated projects start
+  with `npm run dev`, and the routes of the auth template changed.
+
+### Features
+
+* rebuild the CLI and templates on Express 5 ([3ccc236](https://github.com/fadhlaouir/create-express-node-starter/commit/3ccc236ab4a3b47b6c1961d62888829b58ca7ba6))
 
 ## [2.4.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v2.3.0...v2.4.0) (2024-05-24)
 
