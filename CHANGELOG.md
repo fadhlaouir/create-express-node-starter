@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v3.0.2...v3.1.0) (2026-11-04)
+
+### Features
+
+* **templates:** bring in express-node-starter 2.2's security fixes ([025ac00](https://github.com/fadhlaouir/create-express-node-starter/commit/025ac006b0bd021d64e46525768b13be7d5454ce))
+
 ## [3.0.2](https://github.com/fadhlaouir/create-express-node-starter/compare/v3.0.1...v3.0.2) (2026-11-03)
 
 ### Bug Fixes
