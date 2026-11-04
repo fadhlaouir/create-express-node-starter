@@ -40,6 +40,9 @@ const REPO_ONLY = [
   /^(CHANGELOG|CODE_OF_CONDUCT|SECURITY|README)\.md$/,
   /^LICENSE$/,
   /^package-lock\.json$/,
+  // The starter's own release notes and code review settings
+  /^\.versionrc\.json$/,
+  /^\.coderabbit\.yaml$/,
 ];
 
 // Everything that exists only for user accounts.
