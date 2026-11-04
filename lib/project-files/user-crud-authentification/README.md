@@ -22,7 +22,7 @@ You need Node.js 22.13 or later, and a MongoDB database: local, hosted (for exam
 
 - Sign-up with email confirmation, sign-in, password reset by email, password change
 - Roles `is_user`, `is_manager` and `is_admin`, and a back-office sign-in for staff
-- JWT tokens (`Authorization: Bearer <token>`) holding only the user id and role
+- JWT tokens (`Authorization: Bearer <token>`) holding only the user id and role, checked against the account on every request
 - Profiles with photo upload, a paginated user list for staff, self-service account deletion
 - Swagger docs, health check, CRUD generator, integration tests, Docker
 
@@ -42,7 +42,7 @@ Everything is under `/v1/api`.
 | POST   | `/users/check-email`          | Public                | Whether an email is registered             |
 | GET    | `/users`                      | Admins and managers   | Paginated list: `?page=1&limit=20`         |
 | GET    | `/users/me`                   | Signed in             | The signed-in user                         |
-| PUT    | `/users/me/password`          | Signed in             | Change password (needs the current one)    |
+| PUT    | `/users/me/password`          | Signed in             | Change password, returns a new token       |
 | GET    | `/users/:id`                  | The user, or staff    | One user                                   |
 | PUT    | `/users/:id`                  | The user, or staff    | Update name and photo; admins can set role |
 | DELETE | `/users/:id`                  | The user, or an admin | Delete the account                         |
@@ -84,6 +84,9 @@ Starts the API on port 5000 with MongoDB 8. Set `SECRET` in your shell or `.env`
 - Sign-up never accepts a role or activation flag; only admins change roles.
 - Users can read, update and delete only their own account.
 - String-only request fields block MongoDB query injection.
-- Sign-in and password reset don't reveal which emails have accounts.
+- Sign-in and password reset don't reveal which emails have accounts, in what they say or in how long they take.
+- Deleting or deactivating an account, or changing or resetting its password, signs it out everywhere, and a role change applies at once.
+- Emails are checked as addresses; passwords are limited to the 72 bytes bcrypt reads.
 - Image-only uploads with random names, served from a folder that can't be escaped.
-- Rate limits on every API route (`API_RATE_LIMIT`) and stricter ones on public auth routes, Helmet headers, and no internal details in production errors.
+- Rate limits on every API route (`API_RATE_LIMIT`), stricter ones on public auth routes, and failed sign-ins limited per account from any address (`LOGIN_ACCOUNT_RATE_LIMIT`); Helmet headers, and no internal details in production errors.
+- Shutdown finishes in-flight requests but never hangs on a connection left open.

@@ -53,6 +53,7 @@ const AUTH_FILES = [
   'src/middlewares/authorize.js',
   'src/template/userAccountEmailTemplates.js',
   'src/utils/helpers.js',
+  'src/utils/token.js',
   'test/auth.test.js',
   'test/users.test.js',
 ];

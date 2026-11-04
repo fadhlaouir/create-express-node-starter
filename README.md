@@ -53,14 +53,14 @@ No mail server yet? Sign-up still works: confirmation and reset links are printe
 
 | Template                                      | You get                                                                                                     | Tests |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----- |
-| `basic`: **Basic Project 🌱**                 | Express 5 and MongoDB, error handling, rate limiting, health check, API docs, CRUD generator                | 11    |
-| `product`: **Product CRUD 🚀**                | Everything in Basic, plus a product API with pagination, search and photo uploads                           | 17    |
-| `auth`: **Full Stack User Authentication 🔒** | Everything in Basic, plus sign-up with email confirmation, JWT, roles, password reset, profiles with photos | 32    |
+| `basic`: **Basic Project 🌱**                 | Express 5 and MongoDB, error handling, rate limiting, health check, API docs, CRUD generator                | 12    |
+| `product`: **Product CRUD 🚀**                | Everything in Basic, plus a product API with pagination, search and photo uploads                           | 18    |
+| `auth`: **Full Stack User Authentication 🔒** | Everything in Basic, plus sign-up with email confirmation, JWT, roles, password reset, profiles with photos | 43    |
 
 **Every project includes:**
 
 - **Express 5** with async error handling, Helmet security headers, CORS and body size limits
-- **MongoDB with Mongoose 9**, a `/health` endpoint and graceful shutdown
+- **MongoDB with Mongoose 9**, a `/health` endpoint and graceful shutdown that never hangs on a connection left open
 - **Swagger UI** at `/api-docs/`, from an OpenAPI 3 spec you can extend
 - **A CRUD generator**: `npm run crud:operation -- generate order` writes a working model, controller and routes, registered automatically
 - **Integration tests** with Node's test runner and an in-memory MongoDB
@@ -102,9 +102,11 @@ The CLI never writes into a directory that already has files in it.
 - Passwords hashed with bcrypt; email codes random, single-use, stored only as hashes, and reset links that expire
 - Sign-up can't set a role or activate itself; users can only read and change their own account
 - Request fields must be strings or numbers, which blocks MongoDB query injection
-- Sign-in and password reset answer the same whether an email exists or not
+- Sign-in and password reset answer the same whether an email exists or not, in what they say and in how long they take
+- Tokens are checked against their account on every request: deleting or deactivating it, or changing its password, signs it out everywhere
+- Emails are checked as addresses, and passwords are limited to the 72 bytes bcrypt reads
 - Uploads accept images only, under random names, from a folder that can't be escaped
-- Rate limits on public authentication routes; no internal error details in production
+- Rate limits on every route, stricter ones on authentication, and failed sign-ins limited per account; no internal error details in production
 - Swagger UI loaded with Subresource Integrity and a strict Content-Security-Policy
 
 Found a vulnerability? Please report it privately: see [SECURITY.md](SECURITY.md).
