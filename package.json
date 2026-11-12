@@ -1,6 +1,6 @@
 {
   "name": "create-express-node-starter",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Create a secure Express 5 and MongoDB REST API in one command: JWT authentication, uploads, Swagger docs, tests, Docker and a CRUD generator.",
   "author": "Raed Fadhlaoui <raed.fadhlaoui@hotmail.com>",
   "license": "MIT",

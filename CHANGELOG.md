@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.1](https://github.com/fadhlaouir/create-express-node-starter/compare/v3.1.0...v3.1.1) (2026-11-12)
+
+### Bug Fixes
+
+* **deps:** move minimatch past the globparts advisory, in the CLI and its templates ([2813b34](https://github.com/fadhlaouir/create-express-node-starter/commit/2813b34f7ea72e61704f3c6f28aacb54f26ec815))
+* **templates:** keep the starter's release and review settings out of the templates ([9bb6503](https://github.com/fadhlaouir/create-express-node-starter/commit/9bb6503242d31b837cea6bd9038bd6816d1c2630))
+
 ## [3.1.0](https://github.com/fadhlaouir/create-express-node-starter/compare/v3.0.2...v3.1.0) (2026-11-04)
 
 ### Features
